@@ -1,0 +1,11 @@
+{
+  "name": "mad9135-c2-pwa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Lien Ho Hoang - Luis Henrique Moraes de Souza",
+  "license": "ISC"
+}

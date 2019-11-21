@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="manifest" href="manifest.json" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="theme-color" content="#317EFB"/>
+  <meta name="Description" content="PWA assignment">
+  <title>PWA Offline</title>
+  <link rel="icon" href="./favicon.png" />
+  <!-- reuse same icon for Safari -->
+<link rel="apple-touch-icon" href="./favicon.png">
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <header>
+    <h2>PWA Offline</h2>
+  </header>
+  <div id="content">
+    <div id="imgstt">
+      <img src="./images/offline.png" alt="There's no internet connection" />
+    </div>
+
+    <div>
+      <h2>Current Weather Information: (<span id="latest"></span>)</h2>
+    </div>
+
+    <div id="weather">
+      <div>
+        <h3 id="city"></h3>
+        <div id="temp"></div>
+      </div>
+
+      <div id="details"></div>
+    </div>
+  </div>
+
+  <footer>
+    <div>
+      Information from:
+      <a href="https://openweathermap.org/">Open Weather Map</a>
+    </div>
+    <p>Created by Lien & Luis</p>
+  </footer>
+  <script src="./main.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      // Use the window load event as a trigger to register your Service Worker
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./sw.js");
+      });
+    }
+  </script>
+
+</body>
+
+</html>
