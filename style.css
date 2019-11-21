@@ -1,8 +1,8 @@
 * {
     box-sizing: border-box;
+    font-family: 'Roboto', Helvetica, Arial, sans-serif;
 }
 body {
-    font-family: Helvetica, Arial, sans-serif;
     font-size: 16px;
     width: 100%;
     max-height: 100%;
@@ -31,6 +31,10 @@ header {
   width: 30%;
   align-self: center;
 }
+#latest {
+  font-size: 1.1rem;
+  font-style: oblique;
+}
 img {
   width: 100%;
 }
@@ -53,10 +57,4 @@ footer {
     font-size: 0.8rem;
     color: hsl(0, 0%, 85%);
     box-shadow: 0 -4px 8px hsla(0, 0%, 0%, 0.14),0 -4px 8px hsla(0, 0%, 0%, 0.28);
-}
-@media (max-width: 600px) {
-  nav, article {
-    width: 100%;
-    height: auto;
-  }
 }

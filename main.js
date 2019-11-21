@@ -1,3 +1,5 @@
+'use strict'
+
 document.addEventListener("DOMContentLoaded", init)
 
 function init() {
@@ -16,20 +18,27 @@ function loadData() {
             city.textContent = "City: " + data.name;
 
             let temp = document.getElementById("temp");
-            temp.innerHTML = "Actual Temperature: " + data.main.temp.toFixed(0) + "&#176;C";
+            temp.innerHTML = "Actual Temperature: <strong>" + data.main.temp.toFixed(0) + "&#176;C</strong>";
 
             let details = document.getElementById("details")
 
+            var options = {
+                year: 'numeric', month: 'long', day: 'numeric',
+                hour: 'numeric', minute: 'numeric', second: 'numeric',
+                hour12: true
+            };
             let upDate = new Date(data.dt * 1000);
-            let upDate1 = upDate.toLocaleString();
+            let upDate1 = Intl.DateTimeFormat('en-US', options).format(upDate);
+            // let upDate = new Date(data.dt * 1000).toString();
+            // let upDate1 = upDate.toLocaleString();
 
-            details.innerHTML = `<p>High: ${data.main.temp_max.toFixed(0)}&#176;C  |  Low: ${data.main.temp_min.toFixed(0)}&#176;C</p>`
-            details.innerHTML += `<p>Humidity: ${data.main.humidity}%</p>`
-            details.innerHTML += `<p>Condition: ${data.weather[0].description}</p>`
-            details.innerHTML += `<p>Wind Speed: ${data.wind.speed} KM/h</p>`
+            details.innerHTML = `<p>High: <strong>${data.main.temp_max.toFixed(0)}&#176;C</strong>  |  Low: <strong>${data.main.temp_min.toFixed(0)}&#176;C</strong></p>`
+            details.innerHTML += `<p>Humidity: <strong>${data.main.humidity}%</strong></p>`
+            details.innerHTML += `<p>Condition: <strong>${data.weather[0].description}</strong></p>`
+            details.innerHTML += `<p>Wind Speed: <strong>${data.wind.speed} KM/h</strong></p>`
 
             let latest = document.getElementById("latest");
-            latest.textContent = `${upDate1}`
+            latest.textContent = `Updated: ${upDate1}`
 
         })
         .catch(err => console.log(err))
